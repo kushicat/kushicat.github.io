@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fahim Faisal Kushal | Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <h1>Fahim Faisal Kushal</h1>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <h2>Hello, I’m <span>Fahim</span></h2>
+    <p>Student | Developer | Enthusiast</p>
+  </header>
+
+  <!-- About Section -->
+  <section id="about" class="card">
+    <h2>About Me</h2>
+    <p>Hello! I’m Fahim Faisal Kushal. I’m passionate about learning technology, solving problems, and continuously improving my skills.</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="card">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML & CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+      <div class="skill">AI Concepts</div>
+      <div class="skill">Git & GitHub</div>
+      <div class="skill">Presentation & Research</div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="card">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project">
+        <h3>Project 1</h3>
+        <p>Short description (edit later)</p>
+        <a href="#">View Project</a>
+      </div>
+      <div class="project">
+        <h3>Project 2</h3>
+        <p>Short description (edit later)</p>
+        <a href="#">View Project</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="card">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:fahimfaisalkushal@example.com">fahimfaisalkushal@example.com</a></p>
+    <p>Facebook: <a href="https://facebook.com/yourprofile" target="_blank">facebook.com/yourprofile</a></p>
+    <p>Instagram: <a href="https://instagram.com/yourhandle" target="_blank">@yourhandle</a></p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Fahim Faisal Kushal. All rights reserved.</p>
+  </footer>
+</body>
+</html>
