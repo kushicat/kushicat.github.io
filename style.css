@@ -1,8 +1,10 @@
 /* ============================
-   Modern Portfolio Styles
-   - Responsive nav (hamburger)
-   - Light/Dark theme via CSS vars
-   - Clean cards, grids, hero
+   Modern Portfolio — Effects Edition
+   - Gradient borders + glass panels
+   - Hover lift + glow
+   - 3D tilt (with JS)
+   - Reveal-on-scroll
+   - Light/Dark theme with CSS vars
    ============================ */
 
 /* ---------- THEME VARIABLES ---------- */
@@ -13,23 +15,29 @@
   --text: #0b1020;
   --muted: #5b6b7a;
   --accent: #00aaff;     /* primary accent */
-  --accent-2: #005f99;   /* secondary accent */
-  --hero-grad: linear-gradient(135deg, var(--accent), var(--accent-2));
+  --accent-2: #6a38f0;   /* secondary accent */
+  --hero-grad: radial-gradient(800px 400px at 50% -10%, rgba(0,170,255,.20), transparent 60%),
+               radial-gradient(700px 350px at 90% 10%, rgba(106,56,240,.15), transparent 60%),
+               linear-gradient(135deg, var(--accent), var(--accent-2));
   --border: rgba(0,0,0,.08);
-  --shadow: 0 6px 20px rgba(16, 24, 40, .08);
+  --shadow: 0 10px 30px rgba(16, 24, 40, .10);
+  --ring: rgba(0,170,255,.35);
 }
 
-/* Dark theme overrides (applied when <body class="dark"> or toggled via JS) */
+/* Dark theme (toggle via body.dark) */
 body.dark{
-  --bg: #0a192f;        /* deep navy */
-  --panel: #0f1f3a;     /* darker panel */
-  --text: #ccd6f6;      /* soft light */
-  --muted: #8892b0;     /* muted */
-  --accent: #64ffda;    /* seafoam green */
+  --bg: #0a192f;
+  --panel: #0f1f3a;
+  --text: #ccd6f6;
+  --muted: #8892b0;
+  --accent: #64ffda;
   --accent-2: #3bc9b0;
-  --hero-grad: linear-gradient(135deg, #13304a, #0f1f3a);
+  --hero-grad: radial-gradient(800px 400px at 50% -10%, rgba(100,255,218,.10), transparent 60%),
+               radial-gradient(700px 350px at 90% 10%, rgba(59,201,176,.08), transparent 60%),
+               linear-gradient(135deg, #13304a, #0f1f3a);
   --border: rgba(255,255,255,.12);
-  --shadow: 0 10px 30px rgba(2,6,23,.45);
+  --shadow: 0 14px 40px rgba(2,6,23,.45);
+  --ring: rgba(100,255,218,.25);
 }
 
 /* ---------- GLOBAL ---------- */
@@ -38,15 +46,21 @@ html{scroll-behavior:smooth}
 body{
   font-family: 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
   margin:0; color:var(--text); background:var(--bg);
+  background-attachment: fixed;
 }
 .container{width:min(1100px, 92vw); margin-inline:auto}
 a{color:var(--accent); text-decoration:none}
 a:hover{text-decoration:underline}
 
+/* Motion safety */
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important}
+}
+
 /* ---------- NAVBAR ---------- */
 nav{
-  position: sticky; top: 0; z-index: 20;
-  backdrop-filter: saturate(180%) blur(8px);
+  position: sticky; top: 0; z-index: 30;
+  backdrop-filter: saturate(180%) blur(10px);
   background: color-mix(in oklab, var(--panel) 85%, transparent);
   border-bottom: 1px solid var(--border);
 }
@@ -54,53 +68,77 @@ nav{
   display:flex; align-items:center; justify-content:space-between;
   gap:16px; padding:14px 2vw; width:min(1100px, 92vw); margin-inline:auto;
 }
-.nav-brand{ margin:0; font-size:1.25rem; font-weight:800; }
+.nav-brand{ margin:0; font-size:1.25rem; font-weight:800; letter-spacing:.3px }
 .nav-menu{
   list-style:none; display:flex; gap:1.25rem; margin:0; padding:0;
 }
-.nav-menu a{ font-weight:600; color:var(--muted); text-decoration:none; }
-.nav-menu a:hover{ color:var(--text); }
+.nav-menu a{ font-weight:600; color:var(--muted); text-decoration:none }
+.nav-menu a:hover{ color:var(--text) }
 .nav-cta{display:flex; align-items:center; gap:10px}
 .btn-icon, .btn{
   border:1px solid var(--border);
   background:transparent; color:var(--text);
-  padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:600;
+  padding:8px 12px; border-radius:12px; cursor:pointer; font-weight:600;
+  transition: box-shadow .2s, transform .15s;
 }
-.btn:hover, .btn-icon:hover{ box-shadow: var(--shadow); }
-.hamburger{ display:none; }
+.btn:hover, .btn-icon:hover{ box-shadow: 0 0 0 4px var(--ring) }
+.hamburger{ display:none }
 
 /* ---------- MOBILE NAV ---------- */
 @media (max-width: 900px){
-  .hamburger{ display:inline-flex; }
+  .hamburger{ display:inline-flex }
   .nav-menu{
     position: fixed; left: 4vw; right: 4vw; top: 64px;
     background: var(--panel); border:1px solid var(--border);
     border-radius:14px; padding:12px;
-    display: none; flex-direction:column; gap:8px;
+    display:none; flex-direction:column; gap:8px;
     box-shadow: var(--shadow);
   }
-  .nav-menu.open{ display:flex; }
-  .nav-cta{ display:none; } /* hide desktop controls to save space */
+  .nav-menu.open{ display:flex }
+  .nav-cta{ display:none }
 }
 
 /* ---------- HERO ---------- */
 .hero{
-  text-align:center; padding: 72px 2rem;
-  background: var(--hero-grad); color:#fff;
+  position:relative; text-align:center; padding: 84px 2rem 60px;
+  color:#fff; background: var(--hero-grad);
+  overflow:hidden;
 }
-.hero h2{ font-size: clamp(2rem, 5vw, 2.8rem); margin:0 0 .4rem }
+.hero::after{ /* subtle glass halo bottom edge */
+  content:""; position:absolute; inset:auto 10% -40px 10%; height:120px;
+  background: radial-gradient(60% 100% at 50% 0%, rgba(255,255,255,.18), transparent 70%);
+  filter: blur(18px);
+}
+.hero h2{ font-size: clamp(2rem, 5vw, 3rem); margin:0 0 .4rem }
 .hero p{ font-size: clamp(1rem, 2.5vw, 1.2rem); margin:.25rem 0 }
-.hero .highlight{ color: #ffcc00; }
+.hero .highlight{ color: #ffcc00 }
 
-/* ---------- CARD ---------- */
+/* ---------- CARD (gradient border + sheen) ---------- */
 .card{
-  background:var(--panel); color:var(--text);
-  margin: 2rem auto; padding: 2rem; max-width: 900px;
-  border-radius: 14px; box-shadow: var(--shadow);
-  border:1px solid var(--border);
+  position:relative; background: color-mix(in oklab, var(--panel) 95%, transparent);
+  color:var(--text); margin: 2rem auto; padding: 2rem; max-width: 980px;
+  border-radius: 18px; border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease;
+  will-change: transform;
+}
+/* gradient border ring */
+.card::before{
+  content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1;
+  background: linear-gradient(135deg, color-mix(in oklab, var(--accent) 60%, transparent), color-mix(in oklab, var(--accent-2) 60%, transparent));
+  filter: blur(12px); opacity:.35;
+}
+.card:hover{ transform: translateY(-6px) }
+.card:hover::before{ opacity:.55 }
+
+/* sheen highlight */
+.card::after{
+  content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background: linear-gradient(120deg, rgba(255,255,255,.04), transparent 30%, transparent 70%, rgba(255,255,255,.04));
+  opacity:.6; mix-blend-mode: screen;
 }
 
-/* ---------- SKILLS GRID ---------- */
+/* ---------- GRIDS ---------- */
 .skills-grid{
   display:grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
   gap: 12px; margin-top: 1rem;
@@ -109,40 +147,40 @@ nav{
   background: color-mix(in oklab, var(--accent) 90%, transparent);
   color:#001018; text-align:center; padding:.8rem; border-radius:10px; font-weight:700;
   border: 1px solid color-mix(in oklab, var(--accent) 60%, transparent);
+  transition: transform .15s ease;
 }
+.skill:hover{ transform: translateY(-2px) }
 
-/* ---------- PROJECTS GRID ---------- */
 .projects-grid{
-  display:grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px; margin-top:1rem;
 }
 .project{
-  background: color-mix(in oklab, var(--panel) 88%, transparent);
-  padding: 1rem; border-radius: 12px; text-align:center;
-  transition: transform .15s ease, background .2s ease;
-  border:1px solid var(--border);
+  position:relative; overflow:hidden; border-radius:14px;
+  background: color-mix(in oklab, var(--panel) 90%, transparent);
+  border:1px solid var(--border); padding: 18px;
+  transform: translateZ(0); transition: transform .25s ease, box-shadow .25s ease, background .2s;
 }
-.project:hover{
-  background: color-mix(in oklab, var(--panel) 100%, var(--accent) 8%);
-  transform: translateY(-2px);
+/* soft glow on hover */
+.project:hover{ transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,.15) }
+/* animated gradient corner */
+.project::after{
+  content:""; position:absolute; right:-40px; top:-40px; width:140px; height:140px; border-radius:50%;
+  background: radial-gradient(closest-side, color-mix(in oklab, var(--accent) 70%, transparent), transparent 70%);
+  filter: blur(10px); opacity:.35; transition: opacity .3s, transform .3s;
 }
-.project a{
-  display:inline-block; margin-top:.5rem; font-weight:700;
-}
+.project:hover::after{ opacity:.6; transform: translate(-6px, 6px) }
+.project a{ display:inline-block; margin-top:.5rem; font-weight:700 }
+
+/* ---------- REVEAL-ON-SCROLL ---------- */
+.reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease }
+.reveal.revealed{ opacity:1; transform: translateY(0) }
 
 /* ---------- FOOTER ---------- */
 footer{
-  text-align:center; padding: 20px; background:var(--panel);
+  text-align:center; padding: 22px; background:var(--panel);
   color: var(--muted); margin-top: 2rem; border-top:1px solid var(--border);
 }
 
-/* ---------- UTILITIES ---------- */
+/* ---------- UTIL ---------- */
 .hidden{display:none !important}
-
-/* Small extra flourishes (optional) */
-.card{border:1px solid rgba(100,255,218,.18)} /* looks nice in dark */
-.section-head h2{position:relative}
-.section-head h2::after{
-  content:'';display:block;width:60px;height:2px;background:var(--accent);
-  margin-top:10px;opacity:.8
-}
