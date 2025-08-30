@@ -1,4 +1,4 @@
-// ===== tiny helpers
+// ===== helpers
 const $  = (sel, ctx=document) => ctx.querySelector(sel);
 const $$ = (sel, ctx=document) => Array.from(ctx.querySelectorAll(sel));
 
@@ -11,13 +11,12 @@ burger?.addEventListener('click', () => {
 });
 menu?.addEventListener('click', e => { if(e.target.matches('a')) menu.classList.remove('open'); });
 
-// ===== theme toggle (remembers choice)
+// ===== theme toggle (dark by default + remembers choice)
 const themeBtn = $('#themeToggle');
 const saved = localStorage.getItem('theme');
 
-// dark by default
 if (!saved) {
-  document.body.classList.add('dark');
+  document.body.classList.add('dark');          // default to dark once
   localStorage.setItem('theme','dark');
 } else if (saved === 'dark') {
   document.body.classList.add('dark');
@@ -41,7 +40,7 @@ const io = 'IntersectionObserver' in window ? new IntersectionObserver((entries)
 
 revealEls.forEach(el => io?.observe(el) || el.classList.add('revealed'));
 
-// ===== 3D tilt (for elements with .tilt)
+// ===== 3D tilt (for .tilt)
 function addTilt(el, max = 10){
   let rAF = null;
   const rect = () => el.getBoundingClientRect();
