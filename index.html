@@ -1,52 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="stylesheet" href="styles.css">
-
   <title>Fahim Faisal Kushal | Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Only this stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Navbar -->
-<nav>
-  <div class="nav-inner">
-    <h1 class="nav-brand">Kushal</h1>
 
-    <!-- Mobile hamburger -->
-    <button class="btn-icon hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+  <!-- Navbar (single source of truth) -->
+  <nav>
+    <div class="nav-inner">
+      <h1 class="nav-brand">Kushal</h1>
 
-    <!-- Menu links -->
-    <ul class="nav-menu" role="menu">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="projects.html">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+      <!-- Mobile hamburger -->
+      <button class="btn-icon hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 
-    <!-- Desktop controls -->
-    <div class="nav-cta">
-      <button id="themeToggle" class="btn-icon" type="button">🌙 Dark</button>
+      <!-- Menu links -->
+      <ul class="nav-menu" role="menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- Desktop controls -->
+      <div class="nav-cta">
+        <button id="themeToggle" class="btn-icon" type="button">🌙 Dark</button>
+      </div>
     </div>
-  </div>
-</nav>
-
-
-
-  <!-- Hero Section -->
-<header class="site-header">
-  <a class="logo" href="/">Kushal</a>
-  <button class="hamburger" aria-label="Open menu" aria-controls="nav" aria-expanded="false">☰</button>
-  <nav id="nav" class="nav">
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
   </nav>
-</header>
 
+  <!-- Hero (optional; remove if you don’t want it) -->
+  <header class="hero">
+    <h2>Hello, I’m <span class="highlight">Fahim</span></h2>
+    <p>Student • Developer • Enthusiast</p>
+  </header>
 
   <!-- About Section -->
   <section id="about" class="card">
@@ -96,10 +87,8 @@
   <footer>
     <p>© 2025 Fahim Faisal Kushal. All rights reserved.</p>
   </footer>
-</body>
+
+  <!-- JS must be inside body -->
   <script src="script.js" defer></script>
-
+</body>
 </html>
-
-
-
