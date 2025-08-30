@@ -4,13 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fahim Faisal Kushal | Portfolio</title>
-
-  <!-- Only this stylesheet -->
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
+<body class="dark">
 
-  <!-- Navbar (single source of truth) -->
+  <!-- Navbar -->
   <nav>
     <div class="nav-inner">
       <h1 class="nav-brand">Kushal</h1>
@@ -22,31 +20,31 @@
       <ul class="nav-menu" role="menu">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
-        <li><a href="projects.html">Projects</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
 
       <!-- Desktop controls -->
       <div class="nav-cta">
-        <button id="themeToggle" class="btn-icon" type="button">🌙 Dark</button>
+        <button id="themeToggle" class="btn-icon" type="button">🌞 Light</button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero (optional; remove if you don’t want it) -->
-  <header class="hero">
+  <!-- Hero -->
+  <header class="hero reveal">
     <h2>Hello, I’m <span class="highlight">Fahim</span></h2>
     <p>Student • Developer • Enthusiast</p>
   </header>
 
   <!-- About Section -->
-  <section id="about" class="card">
+  <section id="about" class="card reveal tilt">
     <h2>About Me</h2>
     <p>Hello! I’m Fahim Faisal Kushal. I’m passionate about learning technology, solving problems, and continuously improving my skills.</p>
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="card">
+  <section id="skills" class="card reveal">
     <h2>Skills</h2>
     <div class="skills-grid">
       <div class="skill">HTML & CSS</div>
@@ -59,15 +57,15 @@
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="card">
+  <section id="projects" class="card reveal">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <div class="project">
+      <div class="project tilt">
         <h3>Project 1</h3>
         <p>Short description (edit later)</p>
         <a href="#">View Project</a>
       </div>
-      <div class="project">
+      <div class="project tilt">
         <h3>Project 2</h3>
         <p>Short description (edit later)</p>
         <a href="#">View Project</a>
@@ -76,7 +74,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="card">
+  <section id="contact" class="card reveal">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:fahimfaisalkushal@example.com">fahimfaisalkushal@example.com</a></p>
     <p>Facebook: <a href="https://facebook.com/yourprofile" target="_blank">facebook.com/yourprofile</a></p>
@@ -88,8 +86,6 @@
     <p>© 2025 Fahim Faisal Kushal. All rights reserved.</p>
   </footer>
 
-  <!-- JS must be inside body -->
   <script src="script.js" defer></script>
 </body>
 </html>
-
