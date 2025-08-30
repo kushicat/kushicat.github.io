@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="styles.css">
+
   <title>Fahim Faisal Kushal | Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navbar -->
-  <nav>
-    <h1>Fahim Faisal Kushal</h1>
-    <ul>
+<nav>
+  <div class="nav-inner">
+    <h1 class="nav-brand">Kushal</h1>
+
+    <!-- Hamburger (shown on mobile) -->
+    <button class="btn-icon hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+
+    <!-- Menu (links) -->
+    <ul class="nav-menu" role="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="projects.html">Projects</a></li> <!-- can be a separate page -->
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </nav>
+
+    <!-- Desktop controls -->
+    <div class="nav-cta">
+      <button id="themeToggle" class="btn-icon" type="button">🌙 Dark</button>
+    </div>
+  </div>
+</nav>
+
 
   <!-- Hero Section -->
 <header class="site-header">
@@ -80,5 +96,8 @@
     <p>© 2025 Fahim Faisal Kushal. All rights reserved.</p>
   </footer>
 </body>
+  <script src="script.js" defer></script>
+
 </html>
+
 
