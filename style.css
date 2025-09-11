@@ -234,3 +234,13 @@ footer{
 /* ---------- UTIL ---------- */
 .hidden{display:none !important}
 
+
+.post img{ max-width:100%; height:auto; border-radius:12px }
+.post p, .post li{ line-height:1.75 }
+.post pre, .post code{
+  background: color-mix(in oklab, var(--panel) 85%, #000 15%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.post pre{ padding: 14px; overflow:auto }
+.post code{ padding: .15rem .35rem; border-radius: 8px }
