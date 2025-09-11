@@ -1,6 +1,6 @@
 ---
 title: "Styling My Blog"
-date: 2025-09-13
+date: 2025-09-10
 layout: post
 ---
 
