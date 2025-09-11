@@ -1,8 +1,12 @@
 ---
 title: "My First Blog Post"
 date: 2025-09-11
-layout: none
+layout: post
+description: "Why I’m starting this blog and what I’ll write about."
+# Optional feature image:
+# image: /assets/blog/first-post/cover.jpg
 ---
+
 
 Welcome to my blog! 🎉
 
