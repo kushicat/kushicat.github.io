@@ -244,3 +244,10 @@ footer{
 }
 .post pre{ padding: 14px; overflow:auto }
 .post code{ padding: .15rem .35rem; border-radius: 8px }
+
+.post-card:hover {
+  transform: none !important;
+}
+.post-card:hover::before {
+  opacity: .35 !important; /* keep it same as default */
+}
