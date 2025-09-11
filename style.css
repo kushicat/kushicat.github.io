@@ -251,3 +251,17 @@ footer{
 .post-card:hover::before {
   opacity: .35 !important; /* keep it same as default */
 }
+/* Blog post card */
+.post-card {
+  background: color-mix(in oklab, var(--panel) 85%, var(--accent-2) 15%);
+  color: var(--text);          /* or try #fff if you want light text */
+  padding: 2rem;
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+.post-card h1, 
+.post-card h2, 
+.post-card h3 {
+  color: var(--accent);        /* headings pop */
+}
+
