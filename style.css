@@ -127,42 +127,79 @@ nav{
   opacity:.6; mix-blend-mode: screen;
 }
 
-/* ---------- SKILLS SECTION ---------- */
-#skills.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;   /* centers vertically */
-  min-height: 280px;         /* give it some height */
-  text-align: center;
+/* ---------- SKILLS GRID (flip cards) ---------- */
+#skills.card{
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  min-height: 320px;
 }
-#skills h2 {
-  margin-bottom: 1.2rem;
+#skills h2{ margin-bottom: 1rem; }
+
+.skills-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  width:100%; max-width: 880px; margin-top: .75rem;
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 16px;
-  margin-top: 1.5rem;
+/* Reuse the flip-card base but size it for skills */
+.flip-card { perspective: 1000px; outline: none; }
+.skill-card .flip-card-inner{
+  position: relative;
   width: 100%;
-  max-width: 600px;
+  min-height: 150px;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(.2,.7,.2,1), box-shadow .25s;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 95%, transparent);
+  box-shadow: var(--shadow);
 }
-.skill {
-  background: var(--accent);
-  color: #001018;
-  text-align: center;
-  padding: 0.9rem 1rem;
-  border-radius: 12px;
-  font-weight: 700;
-  border: none;
-  box-shadow: 0 4px 12px rgba(0,0,0,.25);
-  transition: transform .2s ease, box-shadow .2s ease;
+
+/* faces */
+.skill-card .flip-card-front,
+.skill-card .flip-card-back{
+  position:absolute; inset:0;
+  display:grid; place-content:center;
+  padding:18px; text-align:center;
+  backface-visibility:hidden; border-radius:14px;
 }
-.skill:hover {
-  transform: translateY(-4px) scale(1.03);
-  box-shadow: 0 6px 16px rgba(0,0,0,.35);
+
+/* Front face: readable in both themes */
+.skill-card .flip-card-front{
+  color: var(--text);
 }
+
+/* Back face: dark, high-contrast */
+.skill-card .flip-card-back{
+  background: #0b2a57;      /* solid, legible on light & dark */
+  color: #fff;
+  transform: rotateY(180deg);
+  padding-inline: 20px;
+  line-height: 1.35;
+}
+
+/* Interaction */
+.skill-card:hover .flip-card-inner,
+.skill-card:focus-within .flip-card-inner{
+  transform: rotateY(180deg);
+  box-shadow: 0 18px 50px rgba(0,0,0,.18);
+}
+
+/* Icon + title on front */
+.skill-icon{
+  font-size: 28px; margin-bottom: .25rem;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
+}
+.skill-card h3{
+  margin: 0; font-size: 1.05rem; letter-spacing:.2px; font-weight: 800;
+}
+
+/* Prefer larger touch targets on mobile */
+@media (max-width: 520px){
+  .skill-card .flip-card-inner{ min-height: 140px; }
+  .skill-card h3{ font-size: 1rem; }
+}
+
 
 /* ---------- PROJECTS GRID ---------- */
 .projects-grid{
@@ -196,3 +233,4 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{display:none !important}
+
