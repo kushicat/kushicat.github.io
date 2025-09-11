@@ -132,7 +132,11 @@ nav{
   display:flex; flex-direction:column; align-items:center; text-align:center;
   min-height: 320px;
 }
-#skills h2{ margin-bottom: 1rem; }
+
+#skills h2 {
+  display: none;
+}
+
 
 .skills-grid{
   display:grid;
@@ -264,4 +268,5 @@ footer{
 .post-card h3 {
   color: var(--accent);        /* headings pop */
 }
+
 
