@@ -1,0 +1,8 @@
+title: "Fahim’s Site"
+description: "Projects, notes, and blog."
+baseurl: ""        # leave empty since your repo is username.github.io
+url: "https://kushicat.github.io"
+
+theme: minima      # optional: GitHub’s default Jekyll theme
+plugins:
+  - jekyll-feed    # optional: creates an RSS feed
