@@ -1,8 +1,11 @@
+
 ---
-layout: none
 title: "My First Blog Post"
-date: 2025-09-12
+date: 2025-09-11
+layout: none
 ---
+
+
 
 Welcome to my blog! 🎉
 
