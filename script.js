@@ -61,3 +61,11 @@ function addTilt(el, max = 10){
   el.addEventListener('pointerleave', reset);
 }
 $$('.tilt').forEach(addTilt);
+// ===== tap-to-flip (Skills + Projects) =====
+document.querySelectorAll('.flip-card').forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('a')) return; // allow links on back side
+    card.classList.toggle('flipped');
+  });
+});
+
