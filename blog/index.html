@@ -33,6 +33,15 @@ title: Blog
 
   <section class="card">
     <h2>All posts</h2>
+    <!-- Tag filter bar -->
+<div id="tagFilter" class="tag-filter">
+  <button class="tag-chip active" data-tag="all">All</button>
+  {% assign all_tags = site.tags | sort %}
+  {% for t in all_tags %}
+    <button class="tag-chip" data-tag="{{ t[0] }}">{{ t[0] }}</button>
+  {% endfor %}
+</div>
+
     <div class="projects-grid">
       {% for post in site.posts %}
         <a class="project" href="{{ post.url | relative_url }}">
