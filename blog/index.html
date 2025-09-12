@@ -42,15 +42,18 @@ title: Blog
   {% endfor %}
 </div>
 
-    <div class="projects-grid">
-      {% for post in site.posts %}
-        <a class="project" href="{{ post.url | relative_url }}">
-          <h3>{{ post.title }}</h3>
-          <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
-        </a>
-      {% endfor %}
-    </div>
-  </section>
+
+<div class="projects-grid">
+  {% for post in site.posts %}
+    <a class="project" 
+       href="{{ post.url | relative_url }}" 
+       data-tags="{{ post.tags | join: ',' }}">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt | strip_html | truncate: 140 }}</p>
+    </a>
+  {% endfor %}
+</div>
+
 
   <footer>© 2025 Fahim Faisal Kushal</footer>
   <script src="/script.js" defer></script>
