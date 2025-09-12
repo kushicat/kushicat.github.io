@@ -96,3 +96,17 @@ document.querySelectorAll('.flip-card').forEach(card => {
   // default load
   apply("all");
 })();
+
+// ===== custom cursor =====
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+// Enlarge on hover (links, buttons, etc.)
+document.querySelectorAll('a, button').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+});
+
