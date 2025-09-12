@@ -303,4 +303,30 @@ footer{
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Custom cursor */
+.cursor {
+  position: fixed;
+  top: 0; left: 0;
+  width: 20px; height: 20px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+  z-index: 10000;
+}
+
+.cursor.active {
+  transform: translate(-50%, -50%) scale(2);
+  background: var(--accent);
+  opacity: 0.3;
+}
+
+
+
 
