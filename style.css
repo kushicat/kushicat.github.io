@@ -163,10 +163,16 @@ nav{
 .card:hover::after{ opacity:.28 }
 
 /* Section card headings can be extra bold/tight if desired */
-.card >  h2 { display: none; }
+.card > h2 {
+  display: block;   /* restores normal visibility */
+}
 
 
 /* ---------- SKILLS GRID (flip cards) ---------- */
+#skills h2 {
+  display: none;
+}
+
 #skills.card{
   display:flex; flex-direction:column; align-items:center; text-align:center;
   min-height: 320px;
@@ -351,4 +357,5 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
