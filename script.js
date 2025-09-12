@@ -69,3 +69,30 @@ document.querySelectorAll('.flip-card').forEach(card => {
   });
 });
 
+// ===== blog tag filter =====
+(function(){
+  const bar = document.getElementById('tagFilter');
+  if (!bar) return;
+
+  const chips = Array.from(bar.querySelectorAll('.tag-chip'));
+  const cards = Array.from(document.querySelectorAll('.projects-grid .project'));
+
+  function apply(tag) {
+    chips.forEach(c => c.classList.toggle('active', c.dataset.tag === tag));
+
+    cards.forEach(card => {
+      const tags = (card.dataset.tags || "").toLowerCase().split(",");
+      const show = (tag === "all") || tags.includes(tag.toLowerCase());
+      card.style.display = show ? "" : "none";
+    });
+  }
+
+  bar.addEventListener('click', e => {
+    const btn = e.target.closest('.tag-chip');
+    if (!btn) return;
+    apply(btn.dataset.tag);
+  });
+
+  // default load
+  apply("all");
+})();
