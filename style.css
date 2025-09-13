@@ -66,14 +66,14 @@ h3{ font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
 
 
 /* Optional: big banner heading style */
-.hero h2{
-  color:#fcfcfc;
-  font-family:'Anton', Impact, 'Arial Black', sans-serif;
-  letter-spacing:-2px;
-  font-weight:900;
-  font-size:clamp(2.2rem, 6vw, 4rem);
+.hero h2 {
+  color: #ffffff; /* Brighter white for better contrast */
+  font-family: 'Poppins', sans-serif; /* A more modern, readable font */
+  letter-spacing: -1px; /* Tighter letter spacing for a sleek look */
+  font-weight: 700; /* Bold, but not too heavy */
+  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Slightly larger and more responsive */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds depth with a subtle shadow */
 }
-
 /*___________________________________________________________*/
 /* Motion safety */
 @media (prefers-reduced-motion: reduce){
@@ -365,6 +365,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
