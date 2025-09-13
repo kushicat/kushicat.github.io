@@ -61,12 +61,18 @@ h1{ font-size: clamp(2rem, 6vw, 3rem); }
 h2{ font-size: clamp(1.6rem, 4.5vw, 2.2rem); }
 h3{ font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
 
+
+
+
+
 /* Optional: big banner heading style */
 .blog-heading{
-  letter-spacing:-2px;
-  font-weight:900;
+color: #fcfcfc;
+  font-family: 'Anton', Impact, Arial Black, sans-serif;
+  letter-spacing: -2px;
+  font-weight: 900;
 }
-
+/*___________________________________________________________*/
 /* Motion safety */
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important }
@@ -357,5 +363,6 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
