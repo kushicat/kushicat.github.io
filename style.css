@@ -134,6 +134,36 @@ nav{
 .hero h2{ margin:0 0 .4rem }
 .hero p{ font-size: clamp(1rem, 2.5vw, 1.2rem); margin:.25rem 0 }
 .hero .highlight{ color: #ffcc00 }
+/* Add to your style.css */
+
+.hero img {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 50%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Hover effect for desktop */
+.hero img:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+/* Active/touch effect for mobile */
+.hero img:active {
+  transform: scale(0.95);
+}
+
+/* Optional: Add a fun wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.hero img:hover {
+  animation: wiggle 0.5s ease;
+}
 
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
@@ -395,6 +425,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
