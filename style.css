@@ -194,6 +194,86 @@ nav{
     transform: translateY(-10px) scale(1.05) rotate(-3deg); 
   }
 }
+
+/* ---------- ROTATING CIRCLE BUTTON ---------- */
+.circle-button {
+  display: inline-block;
+  margin-top: 2rem;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.circle-button:hover {
+  transform: scale(1.1);
+}
+
+.circle-svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 10s linear infinite;
+}
+
+/* Rotating text */
+.circle-text {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  fill: var(--accent);
+  text-transform: uppercase;
+}
+
+/* Center circle */
+.circle-center {
+  transition: r 0.3s ease;
+}
+
+.circle-button:hover .circle-center {
+  r: 50;
+}
+
+/* Center arrow */
+.circle-arrow {
+  font-size: 40px;
+  fill: #000;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+body.dark .circle-arrow {
+  fill: #000;
+}
+
+.circle-button:hover .circle-arrow {
+  transform: translateX(5px);
+}
+
+/* Rotation animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .circle-button {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circle-text {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+}
+
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
   position:relative;
@@ -486,6 +566,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
