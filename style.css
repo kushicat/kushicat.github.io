@@ -138,42 +138,50 @@ nav{
 
 /* Add to your style.css - Replace the existing .hero img section */
 
+/* Replace the .hero img section with this */
+
 .hero img {
-  margin-top: 2rem; /* Gap between text and image */
+  margin-top: 2rem;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 0; /* Remove circular frame */
-  box-shadow: none; /* Remove shadow */
- 
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  
+  /* Auto-play floating animation */
+  animation: float 3s ease-in-out infinite;
 }
 
-/* Combine hover effects */
+/* Hover amplifies the effect */
 .hero img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-  animation: wiggle 0.5s ease;
+  animation: float-hover 1s ease-in-out infinite;
+  filter: brightness(1.1) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
 
 /* Active/touch effect for mobile */
 .hero img:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
+  animation: none;
 }
 
-/* Wiggle animation */
-@keyframes wiggle {
-  0%, 100% { transform: scale(1.1) rotate(0deg); }
-  25% { transform: scale(1.1) rotate(-5deg); }
-  75% { transform: scale(1.1) rotate(5deg); }
-}
-/* Optional: Add a fun wiggle animation */
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
+/* Idle floating animation (always playing) */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-15px) rotate(2deg); 
+  }
 }
 
-.hero img:hover {
-  animation: wiggle 0.5s ease;
+/* Faster floating when hovered */
+@keyframes float-hover {
+  0%, 100% { 
+    transform: translateY(0px) scale(1.05) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-10px) scale(1.05) rotate(-3deg); 
+  }
 }
 
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
@@ -436,6 +444,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
