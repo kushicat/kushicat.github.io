@@ -19,8 +19,12 @@
   --ring: rgba(0,170,255,.35);
 
   /* Typography */
-  --heading-font: 'Playfair Display', serif;
+ /* --heading-font: 'Poppins', system-ui, -apple-system, "Segoe UI", Arial, sans-serif; */
+   --heading-font: 'Playfair Display', serif;
+body {
+  font-family: 'Lato', sans-serif;
 }
+
 
 /* Dark theme */
 body.dark {
@@ -40,7 +44,7 @@ body.dark {
 *{ box-sizing:border-box }
 html{ scroll-behavior:smooth }
 body{
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', sans-serif;  /* ✅ Correct location */
   margin:0; color:var(--text); background:var(--bg);
   background-attachment: fixed;
 }
@@ -61,24 +65,29 @@ h1{ font-size: clamp(2rem, 6vw, 3rem); }
 h2{ font-size: clamp(1.6rem, 4.5vw, 2.2rem); }
 h3{ font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
 
+
+
+
+
+/* Optional: big banner heading style */
 /* Hero heading - Playfair Display */
 .hero h2 {
   color: #ffffff;
-  font-family: 'Playfair Display', 'Georgia', serif;
-  letter-spacing: -0.1em;
-  font-weight: 600;
+  font-family: 'Playfair Display', 'Georgia', serif; /* 👈 Changed to Playfair */
+  letter-spacing: -0.1em; /* 👈 -10% letter spacing */
+  font-weight: 600; /* 👈 Semi-bold (Medium Bold) */
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* Subtitle stays the same (system font) */
+/* Subtitle stays the same (Poppins/system font) */
 .hero p {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   margin: .25rem 0;
-  font-family: 'Lato', sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   letter-spacing: normal;
 }
-
+/*___________________________________________________________*/
 /* Motion safety */
 @media (prefers-reduced-motion: reduce){
   *{ animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; scroll-behavior:auto!important }
@@ -138,32 +147,40 @@ nav{
 .hero h2{ margin:0 0 .4rem }
 .hero p{ font-size: clamp(1rem, 2.5vw, 1.2rem); margin:.25rem 0 }
 .hero .highlight{ color: #ffcc00 }
+/* Add to your style.css */
 
-/* ---------- HERO IMAGE ---------- */
+/* Add to your style.css - Replace the existing .hero img section */
+
+
+/* ---------- HERO IMAGE (REPLACE EVERYTHING FROM LINE ~154 to ~186) ---------- */
+
 .hero img {
-  margin-top: 2rem;
+  margin-top: 2rem; /* Gap between text and image */
   cursor: pointer;
-  border-radius: 0;
-  box-shadow: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 0; /* No oval frame */
+  box-shadow: none; /* No shadow */
   background: transparent;
-  animation: float 5s ease-in-out infinite;
+  
+  /* Auto-play floating animation */
+
+     animation: float 5s ease-in-out infinite;
   transition: filter 0.3s ease;
 }
 
-/* Hover effect for desktop only */
-@media (hover: hover) and (pointer: fine) {
-  .hero img:hover {
-    animation: float-hover 1s ease-in-out infinite;
-    filter: brightness(1.15) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-  }
+/* Hover amplifies the effect */
+.hero img:hover {
+  animation: float-hover 1s ease-in-out infinite;
+  filter: brightness(1.15) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
 
-/* Touch effect for mobile */
+/* Active/touch effect for mobile */
 .hero img:active {
   transform: scale(0.98);
+  animation: none;
 }
 
-/* Idle floating animation */
+/* Idle floating animation (always playing) */
 @keyframes float {
   0%, 100% { 
     transform: translateY(0px) rotate(0deg); 
@@ -182,7 +199,6 @@ nav{
     transform: translateY(-10px) scale(1.05) rotate(-3deg); 
   }
 }
-
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
   position:relative;
@@ -194,6 +210,7 @@ nav{
   transition: transform .25s ease, box-shadow .25s ease;
   will-change: transform;
 }
+/* keep glow behind content */
 .card::before{
   content:""; position:absolute; inset:-1px; border-radius:inherit; z-index:-1;
   background: linear-gradient(135deg,
@@ -203,9 +220,11 @@ nav{
 }
 .card::after{
   content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  /* toned-down sheen, no blend mode so text never washes out */
   background: linear-gradient(120deg, rgba(255,255,255,.04), transparent 32%, transparent 68%, rgba(255,255,255,.04));
   opacity:.22; transition: opacity .25s;
 }
+/* ensure content is above overlays */
 .card > *{ position:relative; z-index:1 }
 
 .card:hover{
@@ -215,9 +234,11 @@ nav{
 .card:hover::before{ opacity:.42 }
 .card:hover::after{ opacity:.28 }
 
+/* Section card headings can be extra bold/tight if desired */
 .card > h2 {
-  display: block;
+  display: block;   /* restores normal visibility */
 }
+
 
 /* ---------- SKILLS GRID (flip cards) ---------- */
 #skills h2 {
@@ -228,7 +249,9 @@ nav{
   display:flex; flex-direction:column; align-items:center; text-align:center;
   min-height: 320px;
 }
+/* keep Skills heading visible so global heading rules apply */
 
+/* grid */
 .skills-grid{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -236,6 +259,7 @@ nav{
   width:100%; max-width: 880px; margin-top: .75rem;
 }
 
+/* flip-card base */
 .flip-card{ perspective: 1000px; outline: none; }
 .skill-card .flip-card-inner{
   position: relative; width: 100%;
@@ -248,6 +272,7 @@ nav{
   box-shadow: var(--shadow);
 }
 
+/* faces */
 .skill-card .flip-card-front,
 .skill-card .flip-card-back{
   position:absolute; inset:0; display:grid; place-content:center;
@@ -259,12 +284,14 @@ nav{
   padding-inline: 20px; line-height:1.35;
 }
 
+/* interaction */
 .skill-card:hover .flip-card-inner,
 .skill-card:focus-within .flip-card-inner{
   transform: rotateY(180deg);
   box-shadow: 0 18px 50px rgba(0,0,0,.18);
 }
 
+/* icon + title */
 .skill-icon{
   font-size: 28px; margin-bottom:.25rem;
   filter: drop-shadow(0 2px 4px rgba(0,0,0,.15));
@@ -273,6 +300,7 @@ nav{
   margin:0; font-size:1.05rem; letter-spacing:.2px; font-weight:800;
 }
 
+/* mobile targets */
 @media (max-width: 520px){
   .skill-card .flip-card-inner{ min-height: 140px; }
   .skill-card h3{ font-size: 1rem; }
@@ -317,6 +345,7 @@ nav{
 .post pre{ padding: 14px; overflow:auto }
 .post code{ padding: .15rem .35rem; border-radius: 8px }
 
+/* Blog post card */
 .post-card{
   background: color-mix(in oklab, var(--panel) 85%, var(--accent-2) 15%);
   color: var(--text);
@@ -324,6 +353,7 @@ nav{
   border-radius: 18px;
   box-shadow: var(--shadow);
 }
+/* headings inside posts */
 .post-card h1,.post-card h2,.post-card h3{ color: var(--accent); }
 
 /* Tag filter chips */
@@ -348,8 +378,10 @@ nav{
 }
 
 /* ---------- CUSTOM CURSOR (desktop only) ---------- */
+/* Default: normal cursor */
 body{ cursor:auto; }
 
+/* Enable fancy cursor on devices with a precise pointer */
 @media (hover: hover) and (pointer: fine){
   body{ cursor:none; }
   .cursor{
@@ -365,6 +397,7 @@ body{ cursor:auto; }
   }
 }
 
+/* On touch / coarse pointers: hide custom cursor */
 @media (hover: none), (pointer: coarse){
   .cursor{ display:none !important; }
   a, button{ cursor:auto; }
@@ -382,14 +415,15 @@ body{ cursor:auto; }
   box-shadow: 0 14px 40px rgba(0,0,0,.2);
 }
 
-/* Light theme */
+
+/* Light theme (default) */
 body:not(.dark) #blog-card .btn {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
   background: var(--accent);
-  color: #ffffed;
+  color: #ffffed;                /* white text on light background */
   font-weight: 700;
   text-decoration: none;
   transition: background .2s;
@@ -406,7 +440,7 @@ body.dark #blog-card .btn {
   padding: 0.6rem 1.2rem;
   border-radius: 10px;
   background: var(--accent);
-  color: #000000;
+  color: #000000;             /* black text */
   font-weight: 700;
   text-decoration: none;
   transition: background .2s;
@@ -416,17 +450,24 @@ body.dark #blog-card .btn:hover {
   color: #ffffed;
 }
 
-/* ---------- ABOUT ME BUTTON ---------- */
-#about {
-  text-align: left;
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center; padding:22px; background:var(--panel);
+  color: var(--muted); margin-top: 2rem; border-top:1px solid var(--border);
 }
 
-#about .btn {
-  display: block;
-  margin: 1.5rem auto 0 auto;
-  width: fit-content;
-}
+/* ---------- UTIL ---------- */
+.hidden{ display:none !important }
 
+
+
+
+
+
+
+
+/* About Me button - matches blog button style */
 body:not(.dark) #about .btn {
   background: var(--accent);
   color: #ffffed;
@@ -451,11 +492,3 @@ body.dark #about .btn:hover {
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
 
-/* ---------- FOOTER ---------- */
-footer{
-  text-align:center; padding:22px; background:var(--panel);
-  color: var(--muted); margin-top: 2rem; border-top:1px solid var(--border);
-}
-
-/* ---------- UTIL ---------- */
-.hidden{ display:none !important }
