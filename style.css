@@ -31,7 +31,7 @@ body.dark {
   --muted: #a9b8d0;
   --accent: #64ffda;
   --accent-2: #3bc9b0;
-  --hero-grad: linear-gradient(135deg, #13304a, #0f1f3a);
+  --hero-grad: linear-gradient(135deg, #13304a, #0f1f3a); 
   --border: rgba(255,255,255,.15);
   --shadow: 0 14px 40px rgba(2,6,23,.45);
   --ring: rgba(100,255,218,.35);
@@ -67,13 +67,22 @@ h3{ font-size: clamp(1.2rem, 3.5vw, 1.6rem); }
 
 
 /* Optional: big banner heading style */
+/* Hero heading - Playfair Display */
 .hero h2 {
-  color: #ffffff; /* Brighter white for better contrast */
-  font-family: 'Poppins', sans-serif; /* A more modern, readable font */
-  letter-spacing: -1px; /* Tighter letter spacing for a sleek look */
-  font-weight: 700; /* Bold, but not too heavy */
-  font-size: clamp(2.5rem, 6vw, 4.5rem); /* Slightly larger and more responsive */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds depth with a subtle shadow */
+  color: #ffffff;
+  font-family: 'Playfair Display', 'Georgia', serif; /* 👈 Changed to Playfair */
+  letter-spacing: -0.1em; /* 👈 -10% letter spacing */
+  font-weight: 600; /* 👈 Semi-bold (Medium Bold) */
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtitle stays the same (Poppins/system font) */
+.hero p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin: .25rem 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  letter-spacing: normal;
 }
 /*___________________________________________________________*/
 /* Motion safety */
@@ -447,6 +456,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
