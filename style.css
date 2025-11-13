@@ -142,8 +142,9 @@ nav{
   margin-top: 2rem; /* Gap between text and image */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 50%;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border-radius: 0; /* Remove circular frame */
+  box-shadow: none; /* Remove shadow */
+ 
 }
 
 /* Combine hover effects */
@@ -435,6 +436,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
