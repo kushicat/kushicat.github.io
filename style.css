@@ -163,7 +163,9 @@ nav{
   background: transparent;
   
   /* Auto-play floating animation */
-  animation: float 3s ease-in-out infinite;
+
+     animation: float 6s ease-in-out infinite;
+  transition: filter 0.3s ease;
 }
 
 /* Hover amplifies the effect */
@@ -457,6 +459,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
