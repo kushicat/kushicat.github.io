@@ -208,50 +208,51 @@ nav{
 }
 
 .circle-button:hover {
-  transform: scale(1.1);
+  transform: scale(1.15);
+  text-decoration: none;
 }
 
 .circle-svg {
   width: 100%;
   height: 100%;
-  animation: rotate 10s linear infinite;
+  animation: rotate 12s linear infinite;
 }
 
 /* Rotating text */
 .circle-text {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  fill: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  fill: #ffffff;
   text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
 }
 
-/* Center circle */
+/* Center circle - Light contrast with hero background */
 .circle-center {
-  transition: r 0.3s ease;
+  fill: rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease;
 }
 
 .circle-button:hover .circle-center {
+  fill: rgba(255, 255, 255, 0.4);
   r: 50;
 }
 
 /* Center arrow */
 .circle-arrow {
-  font-size: 40px;
-  fill: #000;
+  font-size: 42px;
+  fill: #ffffff;
   font-weight: bold;
-  transition: transform 0.3s ease;
-}
-
-body.dark .circle-arrow {
-  fill: #000;
+  transition: all 0.3s ease;
 }
 
 .circle-button:hover .circle-arrow {
-  transform: translateX(5px);
+  fill: var(--accent);
+  font-size: 48px;
 }
 
-/* Rotation animation */
+/* Rotation animation - clockwise */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -261,19 +262,36 @@ body.dark .circle-arrow {
   }
 }
 
+/* Pause rotation on hover (optional) */
+.circle-button:hover .circle-svg {
+  animation-play-state: paused;
+}
+
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .circle-button {
     width: 120px;
     height: 120px;
+    margin-top: 1.5rem;
   }
   
   .circle-text {
-    font-size: 12px;
-    letter-spacing: 2px;
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+  
+  .circle-arrow {
+    font-size: 36px;
   }
 }
 
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .circle-button {
+    width: 135px;
+    height: 135px;
+  }
+}
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
   position:relative;
@@ -566,6 +584,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
