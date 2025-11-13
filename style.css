@@ -168,7 +168,7 @@ nav{
 /* Hover amplifies the effect */
 .hero img:hover {
   animation: float-hover 1s ease-in-out infinite;
-  filter: brightness(1.5) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  filter: brightness(1.15) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
 
 /* Active/touch effect for mobile */
@@ -456,6 +456,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
