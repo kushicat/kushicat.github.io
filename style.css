@@ -21,10 +21,8 @@
   /* Typography */
  /* --heading-font: 'Poppins', system-ui, -apple-system, "Segoe UI", Arial, sans-serif; */
    --heading-font: 'Playfair Display', serif;
-body {
-  font-family: 'Lato', sans-serif;
-}
 
+}
 
 /* Dark theme */
 body.dark {
@@ -154,20 +152,18 @@ nav{
 
 /* ---------- HERO IMAGE (REPLACE EVERYTHING FROM LINE ~154 to ~186) ---------- */
 
+
 .hero img {
-  margin-top: 2rem; /* Gap between text and image */
+  margin-top: 2rem;
   cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 0; /* No oval frame */
-  box-shadow: none; /* No shadow */
+  border-radius: 0;
+  box-shadow: none;
   background: transparent;
   
   /* Auto-play floating animation */
-
-     animation: float 5s ease-in-out infinite;
+  animation: float 5s ease-in-out infinite;
   transition: filter 0.3s ease;
 }
-
 /* Hover amplifies the effect */
 .hero img:hover {
   animation: float-hover 1s ease-in-out infinite;
@@ -491,4 +487,5 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
