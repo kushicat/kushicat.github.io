@@ -19,7 +19,8 @@
   --ring: rgba(0,170,255,.35);
 
   /* Typography */
-  --heading-font: 'Poppins', system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+ /* --heading-font: 'Poppins', system-ui, -apple-system, "Segoe UI", Arial, sans-serif; */
+   --heading-font: 'Playfair Display', 'Georgia', serif;
 }
 
 /* Dark theme */
@@ -138,19 +139,6 @@ nav{
 
 /* Add to your style.css - Replace the existing .hero img section */
 
-/* Replace the .hero img section with this */
-
-.hero img {
-  margin-top: 2rem;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 0;
-  box-shadow: none;
-  background: transparent;
-  
-  /* Auto-play floating animation */
-  animation: float 3s ease-in-out infinite;
-}
 
 /* ---------- HERO IMAGE (REPLACE EVERYTHING FROM LINE ~154 to ~186) ---------- */
 
@@ -164,14 +152,14 @@ nav{
   
   /* Auto-play floating animation */
 
-     animation: float 6s ease-in-out infinite;
+     animation: float 5s ease-in-out infinite;
   transition: filter 0.3s ease;
 }
 
 /* Hover amplifies the effect */
 .hero img:hover {
   animation: float-hover 1s ease-in-out infinite;
-  filter: brightness(1.1) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+  filter: brightness(1.5) drop-shadow(0 10px 20px rgba(0,0,0,0.3));
 }
 
 /* Active/touch effect for mobile */
@@ -459,6 +447,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
