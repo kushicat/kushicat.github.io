@@ -196,9 +196,9 @@ nav{
 }
 
 /* ---------- ROTATING CIRCLE BUTTON ---------- */
-.circle-button {
-  display: inline-block;
-  margin-top: 2rem;
+.hero .circle-button {
+  display: block;  /* Change from inline-block to block */
+  margin: 2rem auto 0 auto;  /* Auto margins center it */
   width: 150px;
   height: 150px;
   position: relative;
@@ -242,8 +242,10 @@ nav{
 /* Center arrow */
 .circle-arrow {
   font-size: 42px;
-  fill: #ffffff;
-  font-weight: bold;
+ fill: #ffcc00;
+  stroke: #ffcc00;  /* Add outline */
+  stroke-width: 1.5;  /* Thickness of outline */
+  font-weight: 900;  /* Extra bold */
   transition: all 0.3s ease;
 }
 
@@ -584,6 +586,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
