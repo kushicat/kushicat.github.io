@@ -136,17 +136,21 @@ nav{
 .hero .highlight{ color: #ffcc00 }
 /* Add to your style.css */
 
+/* Add to your style.css - Replace the existing .hero img section */
+
 .hero img {
+  margin-top: 2rem; /* Gap between text and image */
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* Hover effect for desktop */
+/* Combine hover effects */
 .hero img:hover {
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
   box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  animation: wiggle 0.5s ease;
 }
 
 /* Active/touch effect for mobile */
@@ -154,6 +158,12 @@ nav{
   transform: scale(0.95);
 }
 
+/* Wiggle animation */
+@keyframes wiggle {
+  0%, 100% { transform: scale(1.1) rotate(0deg); }
+  25% { transform: scale(1.1) rotate(-5deg); }
+  75% { transform: scale(1.1) rotate(5deg); }
+}
 /* Optional: Add a fun wiggle animation */
 @keyframes wiggle {
   0%, 100% { transform: rotate(0deg); }
@@ -425,6 +435,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
