@@ -152,6 +152,20 @@ nav{
   animation: float 3s ease-in-out infinite;
 }
 
+/* ---------- HERO IMAGE (REPLACE EVERYTHING FROM LINE ~154 to ~186) ---------- */
+
+.hero img {
+  margin-top: 2rem; /* Gap between text and image */
+  cursor: pointer;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 0; /* No oval frame */
+  box-shadow: none; /* No shadow */
+  background: transparent;
+  
+  /* Auto-play floating animation */
+  animation: float 3s ease-in-out infinite;
+}
+
 /* Hover amplifies the effect */
 .hero img:hover {
   animation: float-hover 1s ease-in-out infinite;
@@ -183,7 +197,6 @@ nav{
     transform: translateY(-10px) scale(1.05) rotate(-3deg); 
   }
 }
-
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
   position:relative;
@@ -444,6 +457,7 @@ footer{
 
 /* ---------- UTIL ---------- */
 .hidden{ display:none !important }
+
 
 
 
