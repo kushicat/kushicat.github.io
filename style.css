@@ -202,10 +202,10 @@ nav{
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   z-index: 100;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  /* box-shadow: 0 8px 20px rgba(0,0,0,0.3) */;
 }
 
 .circle-button:hover {
@@ -231,12 +231,12 @@ nav{
 
 /* Center circle - Light contrast with hero background */
 .circle-center {
-  fill: rgba(255, 255, 255, 0.25);
+  fill: rgba(255, 255, 255, 0.75);
   transition: all 0.4s ease;
 }
 
 .circle-button:hover .circle-center {
-  fill: rgba(255, 255, 255, 0.4);
+  fill: rgba(255, 255, 255, 0.9);
   r: 50;
 }
 
@@ -588,6 +588,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
