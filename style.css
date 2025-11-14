@@ -199,14 +199,13 @@ nav{
 
 /* ---------- ROTATING CIRCLE BUTTON ---------- */
 .circle-button {
-  display: inline-block;
-  margin-top: 2rem;
-  width: 150px;
-  height: 150px;
-  position: relative;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  text-decoration: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 100px;
+  height: 100px;
+  z-index: 100;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
 .circle-button:hover {
@@ -225,7 +224,7 @@ nav{
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 4px;
-  fill: #ffffff;
+  fill: #ffcc00;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
 }
@@ -244,7 +243,7 @@ nav{
 /* Center arrow */
 .circle-arrow {
   font-size: 42px;
-  fill: #ffffff;
+  fill: #ffcc00;
   font-weight: bold;
   transition: all 0.3s ease;
 }
@@ -589,6 +588,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
