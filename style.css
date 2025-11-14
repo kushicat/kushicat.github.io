@@ -308,8 +308,8 @@ body.dark .circle-button:hover .circle-center {
   }
   
   .circle-text {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 12px;
+    letter-spacing: 3px;
   }
   
   .circle-arrow {
@@ -734,6 +734,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
