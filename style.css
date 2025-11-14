@@ -199,13 +199,14 @@ nav{
 
 /* ---------- ROTATING CIRCLE BUTTON ---------- */
 .circle-button {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
-  width: 150px;
-  height: 150px;
-  z-index: 100;
-  /* box-shadow: 0 8px 20px rgba(0,0,0,0.3) */;
+  display: block;
+  margin: 2rem auto 0 auto;
+  width: 100px;
+  height: 100px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
 }
 
 .circle-button:hover {
@@ -219,41 +220,71 @@ nav{
   animation: rotate 12s linear infinite;
 }
 
-/* Rotating text */
+/* Rotating text - THEME AWARE */
 .circle-text {
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 4px;
-  fill: #ffcc00;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
   text-transform: uppercase;
   font-family: 'Lato', sans-serif;
+  transition: fill 0.3s ease;
 }
 
-/* Center circle - Light contrast with hero background */
+/* Light theme text */
+body:not(.dark) .circle-text {
+  fill: #0b1020;  /* Dark text on light background */
+}
+
+/* Dark theme text */
+body.dark .circle-text {
+  fill: #ffffff;  /* White text on dark background */
+}
+
+/* Center circle - THEME AWARE */
 .circle-center {
-  fill: rgba(255, 255, 255, 0.75);
   transition: all 0.4s ease;
 }
 
-.circle-button:hover .circle-center {
-  fill: rgba(255, 255, 255, 0.9);
+/* Light theme center */
+body:not(.dark) .circle-center {
+  fill: rgba(0, 170, 255, 0.15);  /* Light cyan tint */
+}
+
+/* Dark theme center */
+body.dark .circle-center {
+  fill: rgba(255, 255, 255, 0.25);  /* White tint */
+}
+
+/* Hover states */
+body:not(.dark) .circle-button:hover .circle-center {
+  fill: rgba(0, 170, 255, 0.3);
   r: 50;
 }
 
-/* Center arrow */
+body.dark .circle-button:hover .circle-center {
+  fill: rgba(255, 255, 255, 0.4);
+  r: 50;
+}
+
+/* Center arrow - Always yellow */
 .circle-arrow {
-  font-size: 42px;
+  font-size: 36px;
   fill: #ffcc00;
-  font-weight: bold;
+  stroke: #ffcc00;
+  stroke-width: 1.5;
+  font-weight: 900;
   transition: all 0.3s ease;
+  paint-order: stroke fill;
 }
 
 .circle-button:hover .circle-arrow {
-  fill: var(--accent);
-  font-size: 48px;
+  fill: #ffcc00;
+  stroke: #ffcc00;
+  stroke-width: 2;
+  font-size: 42px;
 }
 
-/* Rotation animation - clockwise */
+/* Rotation animation */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -263,38 +294,153 @@ nav{
   }
 }
 
-/* Pause rotation on hover (optional) */
+/* Pause rotation on hover */
 .circle-button:hover .circle-svg {
   animation-play-state: paused;
 }
 
-/* Mobile adjustments */
+/* Mobile adjustments - FIXED */
 @media (max-width: 768px) {
   .circle-button {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
     margin-top: 1.5rem;
   }
   
   .circle-text {
-    font-size: 11px;
-    letter-spacing: 3px;
+    font-size: 10px;
+    letter-spacing: 1.5px;
   }
   
   .circle-arrow {
-    font-size: 36px;
+    font-size: 28px;
+  }
+  
+  .circle-button:hover .circle-arrow {
+    font-size: 32px;
+  }
+  
+  /* Better touch target for mobile */
+  .circle-button {
+    padding: 10px;
+  }
+  
+  /* Disable hover effects on mobile (use tap instead) */
+  .circle-button:hover .circle-svg {
+    animation-play-state: running;
   }
 }
 
 /* Tablet adjustments */
 @media (max-width: 1024px) and (min-width: 769px) {
   .circle-button {
-    width: 135px;
-    height: 135px;
+    width: 95px;
+    height: 95px;
+  }
+  
+  .circle-text {
+    font-size: 11px;
   }
 }
 
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .circle-button {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .circle-text {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  
+  .circle-arrow {
+    font-size: 24px;
+  }
+}
+/* Mobile adjustments - COMPLETE FIX */
+@media (max-width: 768px) {
+  .circle-button {
+    width: 90px;
+    height: 90px;
+    margin-top: 1.5rem;
+  }
+  
+  .circle-text {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+  
+  .circle-arrow {
+    font-size: 28px;
+  }
+}
 
+/* Desktop hover behavior */
+@media (hover: hover) and (pointer: fine) {
+  .circle-button:hover .circle-svg {
+    animation-play-state: paused;
+  }
+  
+  .circle-button:hover {
+    transform: scale(1.15);
+  }
+  
+  .circle-button:hover .circle-center {
+    r: 50;
+  }
+  
+  .circle-button:hover .circle-arrow {
+    font-size: 42px;
+  }
+}
+
+/* Mobile touch behavior */
+@media (hover: none), (pointer: coarse) {
+  /* Active state (while tapping) */
+  .circle-button:active .circle-svg {
+    animation-play-state: paused;
+  }
+  
+  .circle-button:active {
+    transform: scale(1.1);
+  }
+  
+  .circle-button:active .circle-center {
+    r: 48;
+  }
+  
+  .circle-button:active .circle-arrow {
+    font-size: 32px;
+  }
+  
+  /* Smooth transitions */
+  .circle-button {
+    transition: transform 0.2s ease;
+  }
+  
+  .circle-arrow {
+    transition: font-size 0.2s ease;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .circle-button {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .circle-text {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  
+  .circle-arrow {
+    font-size: 24px;
+  }
+}
 
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
@@ -588,6 +734,7 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
 
