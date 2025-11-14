@@ -195,6 +195,108 @@ nav{
     transform: translateY(-10px) scale(1.05) rotate(-3deg); 
   }
 }
+
+
+/* ---------- ROTATING CIRCLE BUTTON ---------- */
+.circle-button {
+  display: inline-block;
+  margin-top: 2rem;
+  width: 150px;
+  height: 150px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.circle-button:hover {
+  transform: scale(1.15);
+  text-decoration: none;
+}
+
+.circle-svg {
+  width: 100%;
+  height: 100%;
+  animation: rotate 12s linear infinite;
+}
+
+/* Rotating text */
+.circle-text {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  fill: #ffffff;
+  text-transform: uppercase;
+  font-family: 'Lato', sans-serif;
+}
+
+/* Center circle - Light contrast with hero background */
+.circle-center {
+  fill: rgba(255, 255, 255, 0.25);
+  transition: all 0.4s ease;
+}
+
+.circle-button:hover .circle-center {
+  fill: rgba(255, 255, 255, 0.4);
+  r: 50;
+}
+
+/* Center arrow */
+.circle-arrow {
+  font-size: 42px;
+  fill: #ffffff;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.circle-button:hover .circle-arrow {
+  fill: var(--accent);
+  font-size: 48px;
+}
+
+/* Rotation animation - clockwise */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Pause rotation on hover (optional) */
+.circle-button:hover .circle-svg {
+  animation-play-state: paused;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .circle-button {
+    width: 120px;
+    height: 120px;
+    margin-top: 1.5rem;
+  }
+  
+  .circle-text {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+  
+  .circle-arrow {
+    font-size: 36px;
+  }
+}
+
+/* Tablet adjustments */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .circle-button {
+    width: 135px;
+    height: 135px;
+  }
+}
+
+
+
 /* ---------- CARD (gradient border + subtle sheen) ---------- */
 .card{
   position:relative;
@@ -487,5 +589,6 @@ body.dark #about .btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 
 
