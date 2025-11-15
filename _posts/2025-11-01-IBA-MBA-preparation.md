@@ -3,7 +3,7 @@
 layout: post
 title: "DU IBA MBA Preparation"
 date: 2025-09-12
-description: "A glimps of how I prepared for IBA MBA"
+description: "A glimpse of how I prepared for IBA MBA"
 tags: [education,business,IBA DU]                  
 ---
 
