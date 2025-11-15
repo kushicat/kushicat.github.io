@@ -119,6 +119,30 @@ nav{
 .hamburger{ display:none }
 
 /* ---------- MOBILE NAV ---------- */
+/* Mobile theme toggle - hidden on desktop */
+.mobile-theme-toggle {
+  display: none;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.mobile-theme-toggle .btn-icon {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Show only on mobile */
+@media (max-width: 900px) {
+  .mobile-theme-toggle {
+    display: block;
+  }
+}
+
+
 @media (max-width: 900px){
   .hamburger{ display:inline-flex }
   .nav-menu{
