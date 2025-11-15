@@ -119,29 +119,6 @@ nav{
 .hamburger{ display:none }
 
 /* ---------- MOBILE NAV ---------- */
-/* Mobile theme toggle - hidden on desktop */
-.mobile-theme-toggle {
-  display: none;
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-  margin-top: 8px;
-}
-
-.mobile-theme-toggle .btn-icon {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* Show only on mobile */
-@media (max-width: 900px) {
-  .mobile-theme-toggle {
-    display: block;
-  }
-}
-
 
 @media (max-width: 900px){
   .hamburger{ display:inline-flex }
@@ -522,13 +499,7 @@ body.dark .circle-button:hover .circle-center {
 .reveal.revealed{ opacity:1; transform: translateY(0) }
 
 /* ---------- BLOG / POST STYLES ---------- */
-.post img{ 
-  max-width:100%; 
-  height:auto; 
-  border-radius:12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
-  cursor: pointer;
-}
+.post img{ max-width:100%; height:auto; border-radius:12px }
 .post p, .post li{ line-height:1.75 }
 .post pre, .post code{
   background: color-mix(in oklab, var(--panel) 85%, #000 15%);
@@ -548,27 +519,6 @@ body.dark .circle-button:hover .circle-center {
 }
 /* headings inside posts */
 .post-card h1,.post-card h2,.post-card h3{ color: var(--accent); }
-
-/* Interactive image effects */
-/* Desktop hover */
-@media (hover: hover) and (pointer: fine) {
-  .post img:hover,
-  .post-card img:hover {
-    transform: scale(1.05) translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    filter: brightness(1.05);
-  }
-}
-
-/* Mobile touch - auto-return */
-@media (hover: none), (pointer: coarse) {
-  .post img:active,
-  .post-card img:active {
-    transform: scale(1.03) translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    filter: brightness(1.05);
-  }
-}
 
 /* Tag filter chips */
 .tag-filter{
@@ -590,6 +540,7 @@ body.dark .circle-button:hover .circle-center {
   background: var(--accent); color:#001018; border-color:transparent;
   box-shadow: 0 4px 12px rgba(0,0,0,.25);
 }
+
 /* ---------- CUSTOM CURSOR (desktop only) ---------- */
 /* Default: normal cursor */
 body{ cursor:auto; }
@@ -706,24 +657,25 @@ body.dark #about .btn:hover {
 }
 /* ---------- CONTACT ICONS (Hover Reveal) ---------- */
 /* ---------- CONTACT SECTION ---------- */
+/* ---------- CONTACT SECTION ---------- */
 #contact {
   text-align: left;
 }
 
-/* Contact Grid */
-.contact-grid {
+/* PRIMARY CONTACTS (Email + LinkedIn) */
+.contact-grid.primary {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
-  margin-top: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* Contact Item Card */
-.contact-item {
+/* Primary contact cards - LARGE & PROMINENT */
+.contact-item.primary-contact {
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 16px;
   border: 2px solid var(--border);
   background: color-mix(in oklab, var(--panel) 90%, transparent);
@@ -734,26 +686,21 @@ body.dark #about .btn:hover {
   overflow: hidden;
 }
 
-/* Subtle background glow */
-.contact-item::before {
+.contact-item.primary-contact::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 0;
 }
 
-/* Icon Wrapper - Circular border */
-.contact-icon-wrapper {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  min-width: 60px;
+/* Primary icon wrapper */
+.primary-contact .contact-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
   border: 2px solid var(--border);
   border-radius: 50%;
   display: flex;
@@ -764,118 +711,223 @@ body.dark #about .btn:hover {
   z-index: 1;
 }
 
-/* Icon */
-.contact-icon {
-  width: 28px;
-  height: 28px;
+.primary-contact .contact-icon {
+  width: 32px;
+  height: 32px;
   color: var(--accent);
   transition: all 0.3s ease;
 }
 
-/* Contact Info */
-.contact-info {
+/* Primary contact info */
+.primary-contact .contact-info {
   flex: 1;
   z-index: 1;
 }
 
-.contact-info h3 {
+.primary-contact .contact-info h3 {
   margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--text);
   transition: color 0.3s ease;
 }
 
-.contact-info p {
+.primary-contact .contact-info p {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--muted);
   transition: color 0.3s ease;
 }
 
-/* Hover Effects */
-.contact-item:hover {
-  transform: translateY(-6px);
+/* Primary hover effects */
+.primary-contact:hover {
+  transform: translateY(-8px);
   border-color: var(--accent);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
-.contact-item:hover::before {
-  opacity: 0.05;
+.primary-contact:hover::before {
+  opacity: 0.08;
 }
 
-/* Icon transforms to rounded square on hover */
-.contact-item:hover .contact-icon-wrapper {
-  border-radius: 16px;
-  transform: scale(1.1) rotate(5deg);
+.primary-contact:hover .contact-icon-wrapper {
+  border-radius: 18px;
+  transform: scale(1.15) rotate(5deg);
   border-color: var(--accent);
   background: var(--accent);
 }
 
-.contact-item:hover .contact-icon {
+.primary-contact:hover .contact-icon {
   color: #000;
   transform: scale(1.1);
 }
 
-/* Light theme icon color on hover */
-body:not(.dark) .contact-item:hover .contact-icon {
+body:not(.dark) .primary-contact:hover .contact-icon {
   color: #ffffff;
 }
 
-.contact-item:hover .contact-info h3 {
+.primary-contact:hover .contact-info h3 {
   color: var(--accent);
 }
 
-.contact-item:hover .contact-info p {
+.primary-contact:hover .contact-info p {
   color: var(--text);
 }
 
-/* Active state for mobile */
-.contact-item:active {
-  transform: translateY(-3px) scale(0.98);
+/* SECONDARY CONTACTS (Social media) */
+.secondary-contacts-wrapper {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.secondary-label {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0 0 1.5rem 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.contact-grid.secondary {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Secondary contact items - SMALL & SUBTLE */
+.contact-item.secondary-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel) 95%, transparent);
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+/* Secondary icon wrapper - smaller */
+.secondary-contact .contact-icon-wrapper {
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--panel);
+  transition: all 0.3s ease;
+}
+
+.secondary-contact .contact-icon {
+  width: 22px;
+  height: 22px;
+  color: var(--muted);
+  transition: all 0.3s ease;
+}
+
+.secondary-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+/* Secondary hover effects - subtle */
+.secondary-contact:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.secondary-contact:hover .contact-icon-wrapper {
+  border-color: var(--accent);
+  background: var(--accent);
+  transform: scale(1.1);
+}
+
+.secondary-contact:hover .contact-icon {
+  color: #000;
+}
+
+body:not(.dark) .secondary-contact:hover .contact-icon {
+  color: #ffffff;
+}
+
+.secondary-contact:hover .secondary-text {
+  color: var(--accent);
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
-  .contact-grid {
+  .contact-grid.primary {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
   
-  .contact-item {
-    padding: 1.25rem;
+  .primary-contact {
+    padding: 1.5rem;
   }
   
-  .contact-icon-wrapper {
-    width: 50px;
-    height: 50px;
-    min-width: 50px;
+  .primary-contact .contact-icon-wrapper {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
   }
   
-  .contact-icon {
-    width: 24px;
-    height: 24px;
+  .primary-contact .contact-icon {
+    width: 26px;
+    height: 26px;
   }
   
-  .contact-info h3 {
-    font-size: 1rem;
+  .primary-contact .contact-info h3 {
+    font-size: 1.1rem;
   }
   
-  .contact-info p {
-    font-size: 0.85rem;
+  .primary-contact .contact-info p {
+    font-size: 0.9rem;
+  }
+  
+  .secondary-contacts-wrapper {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  
+  .contact-grid.secondary {
+    gap: 0.75rem;
+  }
+  
+  .secondary-contact {
+    min-width: 85px;
+    padding: 0.75rem;
   }
 }
 
-/* Extra small mobile */
 @media (max-width: 480px) {
-  .contact-item {
+  .primary-contact {
+    padding: 1.25rem;
     gap: 1rem;
-    padding: 1rem;
   }
   
-  .contact-icon-wrapper {
-    width: 45px;
-    height: 45px;
-    min-width: 45px;
+  .primary-contact .contact-icon-wrapper {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .secondary-contact {
+    min-width: 75px;
+  }
+  
+  .secondary-text {
+    font-size: 0.8rem;
   }
 }
