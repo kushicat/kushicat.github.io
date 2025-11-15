@@ -4,7 +4,7 @@ layout: post
 title: "DU IBA MBA Preparation"
 date: 2025-09-12
 description: "A glimpse of how I prepared for IBA MBA"
-tags: [education,business,IBA DU]                  
+tags: [education, business, IBA DU]
 ---
 
 ## আমি ৬৭ ইনটেকে আইবিএ এমবিএ তে এডমিশন টেস্ট দিই।
