@@ -11,12 +11,14 @@ burger?.addEventListener('click', () => {
 });
 menu?.addEventListener('click', e => { if(e.target.matches('a')) menu.classList.remove('open'); });
 
-// ===== theme toggle (dark by default + remembers choice)
+// ===== theme toggle (dark by default + remembers choice) - DESKTOP & MOBILE
 const themeBtn = $('#themeToggle');
+const themeBtnMobile = $('#themeToggleMobile');
 const saved = localStorage.getItem('theme');
 
+// Set initial theme
 if (!saved) {
-  document.body.classList.add('dark');          // default to dark once
+  document.body.classList.add('dark');
   localStorage.setItem('theme','dark');
 } else if (saved === 'dark') {
   document.body.classList.add('dark');
@@ -24,12 +26,36 @@ if (!saved) {
   document.body.classList.remove('dark');
 }
 
-if (themeBtn) themeBtn.textContent = document.body.classList.contains('dark') ? '🌞 Light' : '🌙 Dark';
+// Update button text function
+function updateThemeButtons() {
+  const isDark = document.body.classList.contains('dark');
+  const icon = isDark ? '🌞' : '🌙';
+  const text = isDark ? 'Light' : 'Dark';
+  
+  if (themeBtn) themeBtn.textContent = `${icon} ${text}`;
+  if (themeBtnMobile) themeBtnMobile.innerHTML = `${icon} <span class="theme-text">${text} Mode</span>`;
+}
 
-themeBtn?.addEventListener('click', () => {
+// Initialize buttons
+updateThemeButtons();
+
+// Toggle theme function
+function toggleTheme() {
   document.body.classList.toggle('dark');
-  localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-  themeBtn.textContent = document.body.classList.contains('dark') ? '🌞 Light' : '🌙 Dark';
+  const isDark = document.body.classList.contains('dark');
+  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  updateThemeButtons();
+}
+
+// Desktop button
+themeBtn?.addEventListener('click', toggleTheme);
+
+// Mobile button
+themeBtnMobile?.addEventListener('click', () => {
+  toggleTheme();
+  // Close mobile menu after theme change
+  menu?.classList.remove('open');
+  burger?.setAttribute('aria-expanded', 'false');
 });
 
 // ===== reveal-on-scroll
@@ -61,7 +87,8 @@ function addTilt(el, max = 10){
   el.addEventListener('pointerleave', reset);
 }
 $$('.tilt').forEach(addTilt);
-// ===== tap-to-flip (Skills + Projects) =====
+
+// ===== tap-to-flip (Skills + Projects)
 document.querySelectorAll('.flip-card').forEach(card => {
   card.addEventListener('click', (e) => {
     if (e.target.closest('a')) return; // allow links on back side
@@ -69,7 +96,7 @@ document.querySelectorAll('.flip-card').forEach(card => {
   });
 });
 
-// ===== blog tag filter =====
+// ===== blog tag filter
 (function(){
   const bar = document.getElementById('tagFilter');
   if (!bar) return;
@@ -97,16 +124,17 @@ document.querySelectorAll('.flip-card').forEach(card => {
   apply("all");
 })();
 
-// ===== custom cursor =====
+// ===== custom cursor
 const cursor = document.querySelector('.cursor');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-});
+if (cursor) {
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
 
-// Enlarge on hover (links, buttons, etc.)
-document.querySelectorAll('a, button').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.classList.add('active'));
-  el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-});
-
+  // Enlarge on hover (links, buttons, etc.)
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('active'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
+  });
+}
