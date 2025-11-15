@@ -17,27 +17,34 @@
 <body class="dark">
   <!-- Navbar -->
   <nav>
-    <div class="nav-inner">
-      <h1 class="nav-brand">Kushal</h1>
+  <div class="nav-inner">
+    <h1 class="nav-brand">Kushal</h1>
 
-      <!-- Mobile hamburger -->
-      <button class="btn-icon hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+    <!-- Mobile hamburger -->
+    <button class="btn-icon hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
 
-      <!-- Menu links -->
-      <ul class="nav-menu" role="menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-          <li><a href="/blog/">Blog</a></li>  <!-- 👈 New blog page -->
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+    <!-- Menu links -->
+    <ul class="nav-menu" role="menu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="/blog/">Blog</a></li>
+      <li><a href="#contact">Contact</a></li>
+      
+      <!-- Theme toggle for mobile (shows in hamburger menu) -->
+      <li class="mobile-theme-toggle">
+        <button id="themeToggleMobile" class="btn-icon" type="button">
+          🌞 <span class="theme-text">Light Mode</span>
+        </button>
+      </li>
+    </ul>
 
-      <!-- Desktop controls -->
-      <div class="nav-cta">
-        <button id="themeToggle" class="btn-icon" type="button">🌞 Light</button>
-      </div>
+    <!-- Desktop controls -->
+    <div class="nav-cta">
+      <button id="themeToggle" class="btn-icon" type="button">🌞 Light</button>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Hero -->
   <header class="hero reveal">
