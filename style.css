@@ -120,6 +120,23 @@ nav{
 
 /* ---------- MOBILE NAV ---------- */
 
+/* ---------- MOBILE NAV ---------- */
+/* Mobile theme toggle - hidden on desktop */
+.mobile-theme-toggle {
+  display: none;
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 8px;
+}
+
+.mobile-theme-toggle .btn-icon {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 @media (max-width: 900px){
   .hamburger{ display:inline-flex }
   .nav-menu{
@@ -131,6 +148,18 @@ nav{
   }
   .nav-menu.open{ display:flex }
   .nav-cta{ display:none }
+  
+  /* Show mobile theme toggle */
+  .mobile-theme-toggle {
+    display: block;
+  }
+}
+
+/* Desktop - force hide mobile toggle */
+@media (min-width: 901px) {
+  .mobile-theme-toggle {
+    display: none !important;
+  }
 }
 
 /* ---------- HERO ---------- */
