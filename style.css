@@ -539,6 +539,24 @@ body.dark .circle-button:hover .circle-center {
 .post code{ padding: .15rem .35rem; border-radius: 8px }
 
 /* Blog post card */
+/* ---------- BLOG / POST STYLES ---------- */
+.post img{ 
+  max-width:100%; 
+  height:auto; 
+  border-radius:12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+  cursor: pointer;
+}
+.post p, .post li{ line-height:1.75 }
+.post pre, .post code{
+  background: color-mix(in oklab, var(--panel) 85%, #000 15%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+.post pre{ padding: 14px; overflow:auto }
+.post code{ padding: .15rem .35rem; border-radius: 8px }
+
+/* Blog post card */
 .post-card{
   background: color-mix(in oklab, var(--panel) 85%, var(--accent-2) 15%);
   color: var(--text);
@@ -548,6 +566,27 @@ body.dark .circle-button:hover .circle-center {
 }
 /* headings inside posts */
 .post-card h1,.post-card h2,.post-card h3{ color: var(--accent); }
+
+/* Interactive image effects */
+/* Desktop hover */
+@media (hover: hover) and (pointer: fine) {
+  .post img:hover,
+  .post-card img:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    filter: brightness(1.05);
+  }
+}
+
+/* Mobile touch - auto-return */
+@media (hover: none), (pointer: coarse) {
+  .post img:active,
+  .post-card img:active {
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.05);
+  }
+}
 
 /* Tag filter chips */
 .tag-filter{
@@ -960,3 +999,4 @@ body:not(.dark) .secondary-contact:hover .contact-icon {
     font-size: 0.8rem;
   }
 }
+
