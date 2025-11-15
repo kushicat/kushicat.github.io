@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "DU IBA MBA Preparation"
