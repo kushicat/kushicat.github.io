@@ -5,7 +5,7 @@ date: 2025-09-12
 description: "A glimpse of how I prepared for IBA MBA"
 tags: [education, business, IBA DU]
 ---
-![A photo of me infront of IBA](/images/iba.png)
+![A photo of me infront of IBA](/images/iba.jpg)
 # How I Cracked the DU IBA MBA Admission Test 
 
 
